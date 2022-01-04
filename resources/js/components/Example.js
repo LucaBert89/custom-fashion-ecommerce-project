@@ -5,8 +5,8 @@ function Example() {
     
     useEffect(() => {
         (async function() {
-            const res = await fetch("/api/product");
-            const data = await res.text();
+            const res = await fetch("/api/products");
+            const data = await res.json();
             console.log(data);
         })();
     })

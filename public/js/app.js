@@ -5338,12 +5338,12 @@ function Example() {
           switch (_context.prev = _context.next) {
             case 0:
               _context.next = 2;
-              return fetch("/api/product");
+              return fetch("/api/products");
 
             case 2:
               res = _context.sent;
               _context.next = 5;
-              return res.text();
+              return res.json();
 
             case 5:
               data = _context.sent;
