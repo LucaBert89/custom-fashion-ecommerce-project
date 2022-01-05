@@ -1,5 +1,5 @@
 <?php
-use App\Http\Controllers\ProductsController;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,3 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::group([], __DIR__. "/Products/products.php");
+Route::group([], __DIR__. "/user/register.php");
+Route::group([], __DIR__. "/user/logout.php");
+Route::group([], __DIR__. "/user/login.php");

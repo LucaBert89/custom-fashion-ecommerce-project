@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Products;
 use Illuminate\Http\Request;
+use App\Models\User;
 use Symfony\Component\Process\Process;
 
 class ProductsController extends Controller
@@ -26,8 +27,8 @@ class ProductsController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            "name" => "required|unique",
-            "sku" => "required|unique"
+            "name" => "required|unique:products,name",
+            "sku" => "required|unique:products,sku"
         ]);
         return Products::create($request->all());
     }
