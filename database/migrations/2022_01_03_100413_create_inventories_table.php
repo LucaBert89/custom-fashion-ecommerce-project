@@ -27,26 +27,7 @@ class CreateInventoriesTable extends Migration
             $table->integer("price");
             $table->string("sku");
             $table->timestamps();
-        });/*
-        Schema::table('inventories', function (Blueprint $table){
-            $table->foreignId('product_id')->constrained('products');
-            $table->foreignId('size_id')->constrained('size');
-            $table->foreignId('color_id')->constrained('color');
-            $table->foreignId('gender_id')->constrained('gender');
-            $table->foreign('product_id')
-                ->references('id')->on('products')
-                ->onDelete('cascade');
-            $table->foreign('size_id')
-                ->references('id')->on('size')
-                ->onDelete('cascade');
-                $table->foreign('color_id')
-                ->references('id')->on('color')
-                ->onDelete('cascade');
-                $table->foreign('gender_id')
-                ->references('id')->on('gender')
-                ->onDelete('cascade');
-            });
-        });*/
+        });
     }
     /**
      * Reverse the migrations.

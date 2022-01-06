@@ -1,11 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Products;
+use App\Models\Size;
 use Illuminate\Http\Request;
 
-
-class ProductsController extends Controller
+class SizeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +13,9 @@ class ProductsController extends Controller
      */
     public function index()
     {
-        return Products::all();
+        return Size::all();
     }
+
 
     /**
      * Store a newly created resource in storage.
@@ -26,10 +26,10 @@ class ProductsController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            "name" => "required|unique:products,name",
-            "sku" => "required|unique:products,sku"
+            "size" => "required|unique:size,size",
+            "sku" => "required|unique:size,sku"
         ]);
-        return Products::create($request->all());
+        return Size::create($request->all());
     }
 
     /**
@@ -40,10 +40,10 @@ class ProductsController extends Controller
      */
     public function show($id)
     {
-        if(Products::find($id) === null) {
+        if(Size::find($id) === null) {
             return "id not found";
         };
-        return Products::find($id);
+        return Size::find($id);
     }
 
     /**
@@ -55,9 +55,9 @@ class ProductsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $product = Products::find($id);
-        $product->update($request->all());
-        return $product;
+        $size = Size::find($id);
+        $size->update($request->all());
+        return $size;
     }
 
     /**
@@ -68,18 +68,6 @@ class ProductsController extends Controller
      */
     public function destroy($id)
     {
-       return Products::destroy($id);
-    }
-
-    
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  str  $name
-     * @return \Illuminate\Http\Response
-     */
-    public function search($name)
-    {
-       return Products::where("name", "like", "%".$name."%")->get();
+        return Size::destroy($id);
     }
 }

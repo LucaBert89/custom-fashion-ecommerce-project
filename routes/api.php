@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+Route::group([], __DIR__. "/Inventory/inventory.php");
 Route::group([], __DIR__. "/Products/products.php");
 Route::group([], __DIR__. "/user/register.php");
 Route::group([], __DIR__. "/user/logout.php");

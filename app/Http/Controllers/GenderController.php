@@ -1,11 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Products;
+use App\Models\Gender;
 use Illuminate\Http\Request;
 
-
-class ProductsController extends Controller
+class GenderController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +13,17 @@ class ProductsController extends Controller
      */
     public function index()
     {
-        return Products::all();
+        return Gender::all();
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        //
     }
 
     /**
@@ -26,10 +35,10 @@ class ProductsController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            "name" => "required|unique:products,name",
-            "sku" => "required|unique:products,sku"
+            "gender" => "required|unique:gender,gender",
+            "sku" => "required|unique:gender,sku"
         ]);
-        return Products::create($request->all());
+        return Gender::create($request->all());
     }
 
     /**
@@ -40,12 +49,11 @@ class ProductsController extends Controller
      */
     public function show($id)
     {
-        if(Products::find($id) === null) {
+        if(Gender::find($id) === null) {
             return "id not found";
         };
-        return Products::find($id);
+        return Gender::find($id);
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -55,9 +63,9 @@ class ProductsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $product = Products::find($id);
-        $product->update($request->all());
-        return $product;
+        $gender = Gender::find($id);
+        $gender->update($request->all());
+        return $gender;
     }
 
     /**
@@ -68,18 +76,6 @@ class ProductsController extends Controller
      */
     public function destroy($id)
     {
-       return Products::destroy($id);
-    }
-
-    
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  str  $name
-     * @return \Illuminate\Http\Response
-     */
-    public function search($name)
-    {
-       return Products::where("name", "like", "%".$name."%")->get();
+        return Gender::destroy($id);
     }
 }

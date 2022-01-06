@@ -18,8 +18,8 @@ class ColorFactory extends Factory
     public function definition()
     {
         return [
-                'color' => $this->faker->colorName(),
-                'sku' => $this->faker->hexColor(),
+                'color' => $this->faker->unique()->colorName(),
+                'sku' => $this->faker->unique()->hexColor(),
                 'created_at' => now(),
         ];
     }

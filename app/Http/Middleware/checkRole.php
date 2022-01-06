@@ -16,8 +16,9 @@ class checkRole
      */
     public function handle(Request $request, Closure $next)
     {
+        dd($request->user()->token());
         $user = User::find($request->id);
-        if($user->is_admin !== 1) {
+        if($user->is_admin !== 1 || !$request->user()->tokens()) {
             return abort(403, "unauthorized access");
         };
        
